@@ -26,6 +26,6 @@ A projects coded for University Course to accomplish it for A degree
 * Application will be tested on provided skins (2 provided for lab) and one random from selection during home part assessment (tested on example application to work OK). You should test your app with different skins that you can find for example on Deviant Art.
 
 ### Summary ###
-Coding time : 12-18h (!)
-It is still not finished, but the exam already passed. 
-TODO Finish sometime in the future :P
+* Coding time : 12-18h (!)
+* It is still not finished, but the exam already passed. 
+* TODO Finish sometime in the future :P
