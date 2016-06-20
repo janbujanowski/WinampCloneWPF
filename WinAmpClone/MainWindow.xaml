@@ -1,0 +1,107 @@
+﻿<Window x:Class="WinAmpClone.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="520" Width="275" AllowDrop="True"  WindowStyle="None" AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent" >
+    <Grid >
+        <Grid x:Name="Overall" Visibility="Visible" AllowDrop="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="116"/>
+                <RowDefinition Height="115"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="MainGrid" Width="275" Height="116" MouseLeftButtonDown="MainGrid_OnMouseLeftButtonDown" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Button HorizontalAlignment="Right" Width="15" Click="Exit_Click" Background="Transparent" BorderBrush="Transparent"></Button>
+                <TextBlock x:Name="TimerLabel" Grid.Row="1" Text="00:00" Foreground="White" FontSize="18" Margin="50,8,0,0"></TextBlock>
+                <TextBlock x:Name="TagLabel" Grid.Row="1" Text="WpfAmp" Foreground="White" FontSize="12" Margin="110,8,0,0"></TextBlock>
+                <Grid x:Name="BtnGrid" Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="Button1" Grid.Column="1" Background="Gray" BorderBrush="Transparent" Click="Previous_Click"></Button>
+                    <Button x:Name="Button2" Grid.Column="2" Background="Gray" BorderBrush="Transparent" Click="Play_Click"></Button>
+                    <Button x:Name="Button3" Grid.Column="3" Background="Gray" BorderBrush="Transparent" Click="Pause_Click"></Button>
+                    <Button x:Name="Button4" Grid.Column="4" Background="Gray" BorderBrush="Transparent" Click="Stop_Clicl"></Button>
+                    <Button x:Name="Button5" Grid.Column="5" Background="Gray" BorderBrush="Transparent" Click="Next_Click"></Button>
+                    <Button x:Name="Button6" Grid.Column="7" Background="Gray" BorderBrush="Transparent" Click="Eject_Click"></Button>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" x:Name="EqualizerGrid" AllowDrop="True" Drop="ImagePanel_OnDrop"></Grid>
+            <Grid Grid.Row="2" x:Name="PlaylistGrid" AllowDrop="True" Drop="LoadMp3File">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="FirstPlRow" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                    </Grid.ColumnDefinitions>
+                    <Grid x:Name="Row1Col1" Grid.Column="0"></Grid>
+                    <Grid x:Name="Row1Col2" Grid.Column="1"></Grid>
+                    <Grid x:Name="Row1Col3" Grid.Column="2"></Grid>
+                    <Grid x:Name="Row1Col4" Grid.Column="3"></Grid>
+                    <Grid x:Name="Row1Col5" Grid.Column="4"></Grid>
+                </Grid>
+                <Grid x:Name="SecondPlRow" Grid.Row="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                    </Grid.ColumnDefinitions>
+                    <Grid x:Name="Row2Col1" Grid.Column="0"></Grid>
+                    <Grid x:Name="Row2Col2" Grid.Column="1" >
+                        <ListView x:Name="PlaylistContentListView" MouseDoubleClick="Play_Click"  >
+                            <ListView.ItemTemplate >
+                                <DataTemplate>
+                                    <StackPanel >
+                                        <TextBlock Text="{Binding }" ></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+
+                        </ListView>
+                    </Grid>
+                    <Grid x:Name="Row2Col3" Grid.Column="2"></Grid>
+                </Grid>
+                <Grid x:Name="ThirdPlRow" Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                    </Grid.ColumnDefinitions>
+                    <Grid x:Name="Row3Col1" Grid.Column="0"></Grid>
+                    <Grid x:Name="Row3Col2" Grid.Column="1"></Grid>
+                    <Grid x:Name="Row3Col3" Grid.Column="2"></Grid>
+                    <Grid x:Name="Row3Col4" Grid.Column="3"></Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+        <StackPanel x:Name="ImagePanel" Drop="ImagePanel_OnDrop" AllowDrop="True" Visibility="Visible" Background="Wheat">
+            <TextBlock Text="Drop wsz file here" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0,100,0,0"></TextBlock>
+        </StackPanel>
+
+
+    </Grid>
+</Window>
+
