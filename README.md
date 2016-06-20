@@ -1,6 +1,6 @@
 # README #
 
-This is one of projects created as a Freelancing Experience. 
+This is one of projects created as a Freelancing Experience (apid project prepared for some other students)
 A projects coded for University Course to accomplish it for A degree
 
 * The task is described as below :
