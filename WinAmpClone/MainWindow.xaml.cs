@@ -36,7 +36,7 @@ namespace WinAmpClone
         private SolidColorBrush selectedBG;
         private SolidColorBrush currentForeground;
         private SolidColorBrush fontColorX;
-        String targetDir = @"c:\files\";
+        String targetDir = Path.Combine(Path.GetTempPath(),"winampCloneTemp");
         private int currentplaying = 0;
         private ObservableCollection<string> listofPathsToMp3;
 
@@ -134,6 +134,7 @@ namespace WinAmpClone
         }
         private void LoadPlaylistGrid()
         {
+
             string bitmapPath = Directory.GetFiles(targetDir, "plEdit.bmp", SearchOption.AllDirectories).Single();
             BitmapImage src = new BitmapImage();
             src.BeginInit();
@@ -276,7 +277,7 @@ namespace WinAmpClone
 
             try
             {
-
+                Directory.CreateDirectory(targetDir);
                 //Clear everything what was before
                 Array.ForEach(Directory.GetFiles(targetDir, "*", SearchOption.AllDirectories), File.Delete);
                 // Will always overwrite if target filenames already exist
